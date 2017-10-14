@@ -1,0 +1,11 @@
+<launch>
+	<node pkg="arm_lqr" type="arm_lqr_node" name="arm_lqr" clear_params="true" output="screen">
+		<param name="topic_input_states" value="/dynamixel_interface/states" type="str" />
+		<param name="topic_output_setpoints" value="/dynamixel_interface/setpoints" type="str" />
+
+		<param name="control_rate" value="25.0" type="double" />
+
+		<!-- Motor Parameters -->
+		<rosparam command="load" file="$(find arm_lqr)/launch/config.yaml"/>
+	</node>
+</launch>
